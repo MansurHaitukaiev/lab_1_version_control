@@ -137,7 +137,7 @@ public class EventService {
         try {
             date = LocalDate.parse(dateStr);
         } catch (DateTimeParseException e) {
-            throw new BadRequestException("Некоректний формат дати: '" + dateStr + "'. Очікується формат YYYY-MM-DD");
+            throw new BadRequestException("Некоректний формат дати: '" + dateStr + "'. Очікується формат YYYY-MM-DD (наприклад, 2026-04-17)");
         }
         return eventRepository.findByTitleContainingIgnoreCaseAndDateAndLocationContainingIgnoreCase(query, date, location);
     }
